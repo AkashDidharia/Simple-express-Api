@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Store</title>
+    <style>
+        .border{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+ 
+<body>
+  <h1>
+    Product list:
+  </h1>   
+  <table class="border">
+    <tr>
+        <th>Sr.No.</th>
+        <th>Product_Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+         <% for(let i=0; i<data.length; i++){ %>
+            <tr>
+                
+                <td class="border">
+                    <%=i%> 
+               </td>
+                <td class="border">
+                     <img width="200" src="<%=data[i].image%>" alt="ProductImg">  </br>
+                </td>
+                <td class="border">
+                     <%=data[i].title%> 
+                </td>
+                <td class="border">
+                    <%=data[i].category%>
+                </td>
+                <td class="border">
+                     <%=data[i].price%>
+                </td>
+                <td class="border">
+                     <%=data[i].description%>
+                </td>
+            </tr>
+         <% } %>
+    </table>
+    <br>
+</body>
+</html>

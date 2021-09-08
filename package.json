@@ -1,0 +1,28 @@
+{
+  "name": "fakestore",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/ejs": "^3.1.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.13",
+    "@types/node-fetch": "^3.0.3",
+    "axios": "^0.21.4",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^3.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "tscinit": "tsc --init",
+    "start": "node server.js",
+    "dev": "node --loader ./node_modules/ts-node/esm.mjs ./src/server.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
