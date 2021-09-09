@@ -16,21 +16,18 @@ app.set('view engine','ejs');    // Set view engine as the templating engine tha
 
 app.get('/', async (req: Request, res: Response) => {
 
-    axios.get('https://fakestoreapi.com/products')
-    .then( (response)=>{    
+    const response = await axios.get('https://fakestoreapi.com/products')    
         let data = [];
         for(let i=0;i<10;i++){
              data.push(response.data[i]);  
         }; 
         res.render('index.ejs', {data: data});
-    });
 });
 
 
 app.post('/newlist',async (req: Request, res: Response) => {
     console.log("req recieved");
-    axios.get('https://fakestoreapi.com/products')
-    .then( (response)=>{    
+    const response = await axios.get('https://fakestoreapi.com/products');   
         let data = [];
         for(let i=0;i<10;i++){
              data.push(response.data[i]);  
@@ -48,7 +45,6 @@ app.post('/newlist',async (req: Request, res: Response) => {
         console.log(newPrd);
         data.push(newPrd);
         res.render('products.ejs', {data: data});
-    });
 });
  
 app.listen(port, function(){
