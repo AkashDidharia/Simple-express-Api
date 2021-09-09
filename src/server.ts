@@ -16,7 +16,7 @@ app.set('view engine','ejs');    // Set view engine as the templating engine tha
 
 app.get('/', async (req: Request, res: Response) => {
 
-    const response = await axios.get('https://fakestoreapi.com/products')    
+    const response = await axios.get('https://fakestoreapi.com/products');
         let data = [];
         for(let i=0;i<10;i++){
              data.push(response.data[i]);  
