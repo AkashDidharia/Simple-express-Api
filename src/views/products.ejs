@@ -7,44 +7,48 @@
             border: 1px solid black;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
  
-<body>
-  <h1>
-    Product list:
+<body class="container">
+    <h1 class="bg-dark rounded text-white text-center">
+    Product list
   </h1>   
-  <table class="border">
-    <tr>
-        <th>Sr.No.</th>
-        <th>Product_Image</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Description</th>
-    </tr>
-         <% for(let i=0; i<data.length; i++){ %>
+
+  <table id="products-table" class="table table-striped m-2">
+    <thead>
+        <tr class="bg-primary text-white text-center">
+            <th>Sr.No.</th>
+            <th>Product_Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+         <% data.forEach((item)=>{ %>
             <tr>
                 
                 <td class="border">
-                    <%=i%> 
+                    <%=item.id%> 
                </td>
                 <td class="border">
-                     <img width="200" src="<%=data[i].image%>" alt="ProductImg">  </br>
+                     <img width="200" src="<%=item.image%>" alt="ProductImg">  </br>
                 </td>
                 <td class="border">
-                     <%=data[i].title%> 
+                     <%=item.title%> 
                 </td>
                 <td class="border">
-                    <%=data[i].category%>
+                    <%=item.category%>
                 </td>
                 <td class="border">
-                     <%=data[i].price%>
+                     <%=item.price%>
                 </td>
                 <td class="border">
-                     <%=data[i].description%>
+                     <%=item.description%>
                 </td>
             </tr>
-         <% } %>
+         <% }) %>
     </table>
     <br>
 </body>

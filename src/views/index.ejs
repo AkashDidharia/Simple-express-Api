@@ -2,101 +2,102 @@
 <html>
 <head>
     <title>Fake Store</title>
-    <style>
-        .border{
-            border: 1px solid black;
-        }
-    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
  
-<body>
-  <h1>
-    Product list:
+<body class="container">
+  <h1 class="bg-dark rounded text-white text-center">
+    Product list
+</h1>   
 
-  </h1>   
-  <table id="products-table" class="border">
-    <tr>
-        <th>Sr.No.</th>
+  <table id="products-table" class="table table-striped">
+    <thead>
+    <tr class="bg-primary text-white text-center">
+        <th>Id</th>
         <th>Product_Image</th>
         <th>Name</th>
         <th>Category</th>
         <th>Price</th>
         <th>Description</th>
     </tr>
-         <% for(let i=0; i<data.length; i++){ %>
+    </thead>
+         <% data.forEach((item)=>{ %>
             <tr>
                 
-                <td class="border">
-                    <%=i%> 
+                <td>
+                    <%=item.id%> 
                </td>
-                <td class="border">
-                     <img width="200" src="<%=data[i].image%>" alt="ProductImg">  </br>
+                <td>
+                     <img width="100" src="<%=item.image%>" alt="ProductImg">  </br>
                 </td>
-                <td class="border">
-                     <%=data[i].title%> 
+                <td>
+                     <%=item.title%> 
                 </td>
-                <td class="border">
-                    <%=data[i].category%>
+                <td>
+                    <%=item.category%>
                 </td>
-                <td class="border">
-                     <%=data[i].price%>
+                <td>
+                     <%=item.price%>
                 </td>
-                <td class="border">
-                     <%=data[i].description%>
+                <td>
+                     <%=item.description%>
                 </td>
             </tr>
-         <% } %>
+         <% }) %>
     </table>
     <br>
 
-    <h2>Users Table:</h2>
-    <table id="users-table" class="border">
-        <tr>
+    <h1 class="bg-dark rounded text-white text-center">Users Table</h1>
+    <table id="users-table" class="table table-striped m-2">
+        <thead>
+        <tr class="bg-primary text-white text-center">
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
             <th>Phone</th>
         </tr>
+    </thead>
 
-             <% for(let i=0; i<users.length; i++){ %>
+
+         <% users.forEach((item)=>{ %>
                 <tr>
                     
-                    <td class="border">
-                        <%=users[i].id%> 
+                    <td>
+                        <%=item.id%> 
                    </td>
-                    <td class="border">
-                         <%=users[i].name.firstname%>
-                         <%=users[i].name.lastname%>
+                    <td>
+                         <%=item.name.firstname%>
+                         <%=item.name.lastname%>
                     </td>
-                    <td class="border">
-                         <%=users[i].email%> 
+                    <td>
+                         <%=item.email%> 
                     </td>
-                    <td class="border">
-                        <%=users[i].address.number%>
-                        <%=users[i].address.street%>
-                        <%=users[i].address.city%>
-                        <%=users[i].address.zipcode%>
+                    <td>
+                        <%=item.address.number%>
+                        <%=item.address.street%>
+                        <%=item.address.city%>
+                        <%=item.address.zipcode%>
                     </td>
-                    <td class="border">
-                         <%=users[i].phone%>
+                    <td>
+                         <%=item.phone%>
                     </td>
 
                 </tr>
-             <% } %>
+             <% }) %>
         </table>
 
-    <br>
-
     <form id="post-form" action="/newlist" method="post">
-        <fieldset>
-            <legend>Add Product:</legend>
-            <input name="title" id="title" type="text" placeholder="Product Name">   <br>
-            <input name="category" id="category" type="text" placeholder="Category"> <br>
-            <input name="price" id="price" type="text" placeholder="Price"> <br>
-            <input name="description" id="description" type="text" placeholder="Description">   <br>
-            <input name="image" id="image" type="text" placeholder="Image Url"> <br>
-            <input type="submit" value="Add Product">
+        <fieldset class="border rounded bg-light my-5">
+            <legend class="bg-dark rounded text-white px-3">Add Product</legend>
+                <input name="title" id="title" type="text" class="col-2 mx-1" placeholder="Product Name">   
+                <input name="category" id="category" type="text" class="col-2 mx-1" placeholder="Category"> 
+                <input name="price" id="price" type="text" class="col-2 mx-1" placeholder="Price"> 
+                <input name="description" id="description" class="col-2 mx-1" type="text" placeholder="Description">   
+                <input name="image" id="image" type="text" class="col-2 mx-1" placeholder="Image Url"> 
+                <!-- <div class="col-8"></div> -->
+                <input class="col-10 mx-4 my-2" type="submit" value="Add Product">
         </fieldset>
     </form>
  </body>

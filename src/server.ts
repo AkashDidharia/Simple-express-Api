@@ -3,13 +3,13 @@ import bodyParser from 'body-parser';
 const app: Application = express();
 import axios from 'axios';
 
-const port: number = 5000;
+const port: number = 5500;
 
 // For parsing application/json
 app.use(bodyParser.json());
   
 // For parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('views','src/views');   //set the views directory that contains the template ejs,pug or mustache files
 
@@ -18,8 +18,8 @@ app.set('view engine','ejs');    // Set view engine as the templating engine tha
 app.get('/', async (req: Request, res: Response) => {
 
     try{
-        let [response1,response2] =  await axios.all([axios.get('fakestoreapi.com/products'),
-                                                      axios.get('fakestoreapi.com/users')]);
+        let [response1,response2] =  await axios.all([axios.get('https://fakestoreapi.com/products'),
+                                                      axios.get('https://fakestoreapi.com/users')]);
             let products = [];
             let users = [];
             for(let i=0;i<10;i++){
