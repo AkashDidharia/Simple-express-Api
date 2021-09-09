@@ -14,7 +14,7 @@
     Product list:
 
   </h1>   
-  <table class="border">
+  <table id="products-table" class="border">
     <tr>
         <th>Sr.No.</th>
         <th>Product_Image</th>
@@ -47,6 +47,45 @@
             </tr>
          <% } %>
     </table>
+    <br>
+
+    <h2>Users Table:</h2>
+    <table id="users-table" class="border">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+
+             <% for(let i=0; i<users.length; i++){ %>
+                <tr>
+                    
+                    <td class="border">
+                        <%=users[i].id%> 
+                   </td>
+                    <td class="border">
+                         <%=users[i].name.firstname%>
+                         <%=users[i].name.lastname%>
+                    </td>
+                    <td class="border">
+                         <%=users[i].email%> 
+                    </td>
+                    <td class="border">
+                        <%=users[i].address.number%>
+                        <%=users[i].address.street%>
+                        <%=users[i].address.city%>
+                        <%=users[i].address.zipcode%>
+                    </td>
+                    <td class="border">
+                         <%=users[i].phone%>
+                    </td>
+
+                </tr>
+             <% } %>
+        </table>
+
     <br>
 
     <form id="post-form" action="/newlist" method="post">
